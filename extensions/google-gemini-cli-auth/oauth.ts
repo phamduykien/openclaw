@@ -153,7 +153,7 @@ function findFile(dir: string, name: string, depth: number): string | null {
         }
       }
     }
-  } catch {}
+  } catch { }
   return null;
 }
 
@@ -308,8 +308,8 @@ async function waitForLocalCallback(params: {
         res.setHeader("Content-Type", "text/html; charset=utf-8");
         res.end(
           "<!doctype html><html><head><meta charset='utf-8'/></head>" +
-            "<body><h2>Gemini CLI OAuth complete</h2>" +
-            "<p>You can close this window and return to OpenClaw.</p></body></html>",
+          "<body><h2>Gemini CLI OAuth complete</h2>" +
+          "<p>You can close this window and return to OpenClaw.</p></body></html>",
         );
 
         finish(undefined, { code, state });
@@ -418,7 +418,7 @@ async function discoverProject(accessToken: string): Promise<string> {
   const headers = {
     Authorization: `Bearer ${accessToken}`,
     "Content-Type": "application/json",
-    "User-Agent": "google-api-nodejs-client/9.15.1",
+    "User-Agent": "antigravity/1.15.8 linux/arm64",
     "X-Goog-Api-Client": "gl-node/openclaw",
   };
 
@@ -591,15 +591,15 @@ export async function loginGeminiCliOAuth(
   await ctx.note(
     needsManual
       ? [
-          "You are running in a remote/VPS environment.",
-          "A URL will be shown for you to open in your LOCAL browser.",
-          "After signing in, copy the redirect URL and paste it back here.",
-        ].join("\n")
+        "You are running in a remote/VPS environment.",
+        "A URL will be shown for you to open in your LOCAL browser.",
+        "After signing in, copy the redirect URL and paste it back here.",
+      ].join("\n")
       : [
-          "Browser will open for Google authentication.",
-          "Sign in with your Google account for Gemini CLI access.",
-          "The callback will be captured automatically on localhost:8085.",
-        ].join("\n"),
+        "Browser will open for Google authentication.",
+        "Sign in with your Google account for Gemini CLI access.",
+        "The callback will be captured automatically on localhost:8085.",
+      ].join("\n"),
     "Gemini CLI OAuth",
   );
 
